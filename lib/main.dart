@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widget_gallery_sa/router/app_router.dart';
 
 void main() {
@@ -10,6 +11,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: appRouter,

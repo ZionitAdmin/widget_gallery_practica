@@ -1,7 +1,9 @@
 // forms_screen.dart
 import 'package:flutter/material.dart';
 
+
 class FormsScreen extends StatelessWidget {
+  static String name = "forms_screen";
   final _formKey = GlobalKey<FormState>();
 
   FormsScreen({super.key});
