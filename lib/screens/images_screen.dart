@@ -1,29 +1,61 @@
-// images_screen.dart
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+
 class ImagesScreen extends StatefulWidget {
   static String name = "images_screen";
-  const ImagesScreen({super.key});
+
+  const ImagesScreen();
 
   @override
-  // ignore: library_private_types_in_public_api
-  _ImagesScreenState createState() => _ImagesScreenState();
+  ImagesScreenState createState() => ImagesScreenState();
 }
 
-class _ImagesScreenState extends State<ImagesScreen> {
+
+class ImagesScreenState extends State<ImagesScreen> {
   File? _image;
 
-  Future<void> _getImage() async {
+  Future<void> _getImage(ImageSource source) async {
     final imagePicker = ImagePicker();
-    final pickedFile = await imagePicker.pickImage(source: ImageSource.gallery);
+    final pickedFile = await imagePicker.pickImage(source: source);
 
     if (pickedFile != null) {
       setState(() {
         _image = File(pickedFile.path);
       });
     }
+  }
+
+  void _showImagePicker(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                leading: const Icon(Icons.photo_library),
+                title: const Text('Seleccionar desde la galería'),
+                onTap: () {
+                  Navigator.pop(context);
+                  _getImage(ImageSource.gallery);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.camera_alt),
+                title: const Text('Tomar una foto'),
+                onTap: () {
+                  Navigator.pop(context);
+                  _getImage(ImageSource.camera);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -37,8 +69,10 @@ class _ImagesScreenState extends State<ImagesScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: _getImage,
-              child: const Text('Subir Imagen'),
+              onPressed: () {
+                _showImagePicker(context);
+              },
+              child: const Text('Subir Imagen / Tomar Foto'),
             ),
             const SizedBox(height: 20),
             _image != null

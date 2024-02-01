@@ -24,7 +24,7 @@ class SideBar extends StatelessWidget {
         ),
         NavigationDrawerDestination(
           icon: Icon(Icons.add),
-          label: Text("Botones"),
+          label: Text("Formularios"),
         ),
         NavigationDrawerDestination(
           icon: Icon(Icons.list),
@@ -32,11 +32,15 @@ class SideBar extends StatelessWidget {
         ),
         NavigationDrawerDestination(
           icon: Icon(Icons.text_fields),
-          label: Text("Formularios"),
+          label: Text("Botones"),
         ),
         NavigationDrawerDestination(
           icon: Icon(Icons.image),
           label: Text("Imágenes"),
+        ),
+        NavigationDrawerDestination(
+          icon: Icon(Icons.table_chart),
+          label: Text("Tabla"),
         ),
       ],
     );
