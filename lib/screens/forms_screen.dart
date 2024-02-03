@@ -5,7 +5,7 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 class FormsScreen extends StatelessWidget {
   static String name = "forms_screen";
 
-  const FormsScreen({Key? key});
+  const FormsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class FormsScreen extends StatelessWidget {
                 decoration: const InputDecoration(
                   labelText: 'Nombre completo',
                   border: OutlineInputBorder(),
-                  contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 15), // Añadido espacio interior
+                  contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 ),
                 validator: FormBuilderValidators.required(),
               ),
@@ -91,36 +91,30 @@ class FormsScreen extends StatelessWidget {
                   errorText: 'Debe aceptar las políticas de seguridad',
                 ),
               ),
-              const SizedBox(height: 20),
-
-              ElevatedButton(
-                onPressed: () async {
-                  await Future.delayed(Duration.zero);
-                  final form = FormBuilder.of(context);
-                  if (form!.saveAndValidate()) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: const Text('Guardado con éxito'),
-                        duration: const Duration(seconds: 5),
-                        onVisible: () {
-                          Future.delayed(const Duration(seconds: 5)).then((_) {
-                            Navigator.pop(context);
-                          });
-                        },
-                      ),
-                    );
-                    form.reset();
-                  } else {
+              SizedBox(
+                width: 15,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Mostrar el SnackBar al presionar el botón
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                        content: Text('Ambos campos deben ser completados'),
-                        duration: Duration(seconds: 5),
+                        content: Text('Guardado exitoso'),
+                        duration: Duration(seconds: 2),
                       ),
                     );
-                  }
-                },
-                child: const Text('Guardar'),
-              ),
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.deepPurple, // Color de fondo del botón
+                    onPrimary: Colors.white, // Color del texto
+                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15), // Ajustar el espaciado interno
+                  ),
+                  child: const Text('Guardar'),
+                ),
+              )
+
+
+
+
             ],
           ),
         ),

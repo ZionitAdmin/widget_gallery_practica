@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ButtonsScreen extends StatelessWidget {
   static String name = "buttons_screen";
 
-  const ButtonsScreen({Key? key});
+  const ButtonsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,18 +25,23 @@ class ButtonsScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                _showInputDialog(context);
+                // Acción al presionar el botón
               },
-              child: const Text('Elevated Button (Relleno)'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.blue, // Color de fondo del botón
+              ),
+              child: const Text('Botón Relleno'),
             ),
-            const SizedBox(height: 10), // Espacio adicional
+
+            const SizedBox(height: 20),// Espacio adicional
             TextButton(
               onPressed: () {
                 _showInputDialog(context);
               },
               style: TextButton.styleFrom(
-                primary: Colors.white, // Color del texto
-                backgroundColor: Colors.purple, // Color del botón
+                primary: Colors.white,
+                backgroundColor: Colors.deepPurple, // Color del texto
+             // Color del botón
               ),
               child: const Text('TextButton (Morado)'),
             ),
@@ -75,6 +80,7 @@ class ButtonsScreen extends StatelessWidget {
               },
               child: const Text('Aceptar'),
             ),
+
           ],
         );
       },

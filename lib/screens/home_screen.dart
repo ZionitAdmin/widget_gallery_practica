@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   static String name = "home_screen";
   final Widget child;
 
-  const HomeScreen({Key? key, required this.child}) : super(key: key);
+  const HomeScreen({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +18,12 @@ class HomeScreen extends StatelessWidget {
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
           return MaterialApp(
-            debugShowCheckedModeBanner: false, // Esto oculta la etiqueta de depuración
+            debugShowCheckedModeBanner: false,
             theme: themeProvider.currentTheme,
             home: Scaffold(
               appBar: AppBar(
                 title: const Text("Widget App"),
-                actions: [
-                  IconButton(
-                    onPressed: () {
-                      themeProvider.toggleTheme();
-                    },
-                    icon: const Icon(Icons.lightbulb_outline),
-                  ),
-                ],
+
               ),
               drawer: const SideBar(),
               body: child,
@@ -48,3 +41,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+

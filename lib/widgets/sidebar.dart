@@ -3,14 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:widget_gallery_sa/helpers/drawer.dart';
 
+class SideBar extends StatefulWidget {
+  const SideBar({super.key});
 
-class SideBar extends StatelessWidget {
-  const SideBar({Key? key});
+  @override
+  _SideBarState createState() => _SideBarState();
+}
+
+class _SideBarState extends State<SideBar> {
+  int selectedIndex = 0; // Inicializa con el índice de "Inicio"
 
   @override
   Widget build(BuildContext context) {
-    return NavigationDrawer(selectedIndex: 0,
+    return NavigationDrawer(
+      selectedIndex: selectedIndex,
       onDestinationSelected: (value) {
+        setState(() {
+          selectedIndex = value;
+        });
         context.pushNamed(onHandleDrawerSelect(value));
       },
       children: const [
@@ -46,3 +56,4 @@ class SideBar extends StatelessWidget {
     );
   }
 }
+
