@@ -22,7 +22,7 @@ String onHandleDrawerSelect(int index) {
     case 5:
       return TableScreen.name;
     default:
-      return HomeView.name; // o cualquier otro valor por defecto que prefieras
+      return HomeView.name;
   }
 }
 

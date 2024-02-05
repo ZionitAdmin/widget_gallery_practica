@@ -46,7 +46,6 @@ class _ListsScreenState extends State<ListsScreen> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            // Título para la lista horizontal
             const Padding(
               padding: EdgeInsets.only(bottom: 8.0),
               child: Text(
@@ -54,7 +53,6 @@ class _ListsScreenState extends State<ListsScreen> {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
-            // Lista Horizontal con scrollbar
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.3,
               child: Scrollbar(
@@ -77,8 +75,7 @@ class _ListsScreenState extends State<ListsScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 16), // Separación entre las listas
-            // Título para la lista vertical
+            const SizedBox(height: 16),
             const Padding(
               padding: EdgeInsets.only(bottom: 8.0),
               child: Text(
@@ -86,7 +83,6 @@ class _ListsScreenState extends State<ListsScreen> {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
-            // Lista Vertical
             Expanded(
               child: ListView.builder(
                 itemCount: birthdayItems.length,

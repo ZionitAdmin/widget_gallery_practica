@@ -95,7 +95,6 @@ class FormsScreen extends StatelessWidget {
                 width: 15,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Mostrar el SnackBar al presionar el botón
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text('Guardado exitoso'),
@@ -104,9 +103,9 @@ class FormsScreen extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.deepPurple, // Color de fondo del botón
-                    onPrimary: Colors.white, // Color del texto
-                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15), // Ajustar el espaciado interno
+                    primary: Colors.deepPurple,
+                    onPrimary: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                   ),
                   child: const Text('Guardar'),
                 ),

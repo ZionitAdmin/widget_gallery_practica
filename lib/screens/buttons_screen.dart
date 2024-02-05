@@ -17,7 +17,6 @@ class ButtonsScreen extends StatelessWidget {
           children: [
             CustomStarButton(
               onTap: () {
-                // Acción del botón personalizado
               },
               color: Colors.yellow,
               icon: Icons.star,
@@ -25,25 +24,23 @@ class ButtonsScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Acción al presionar el botón
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.blue, // Color de fondo del botón
+                primary: Colors.blue,
               ),
               child: const Text('Botón Relleno'),
             ),
 
-            const SizedBox(height: 20),// Espacio adicional
+            const SizedBox(height: 20),
             TextButton(
               onPressed: () {
                 _showInputDialog(context);
               },
               style: TextButton.styleFrom(
                 primary: Colors.white,
-                backgroundColor: Colors.deepPurple, // Color del texto
-             // Color del botón
+                backgroundColor: Colors.deepPurple,
               ),
-              child: const Text('TextButton (Morado)'),
+              child: const Text('TextButton'),
             ),
           ],
         ),
@@ -75,7 +72,6 @@ class ButtonsScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // Lógica para manejar la entrada
                 Navigator.of(context).pop();
               },
               child: const Text('Aceptar'),

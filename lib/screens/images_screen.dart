@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 class ImagesScreen extends StatefulWidget {
   static String name = "images_screen";
 
-  const ImagesScreen();
+  const ImagesScreen({super.key});
 
   @override
   ImagesScreenState createState() => ImagesScreenState();

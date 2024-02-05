@@ -1,8 +1,6 @@
-// sidebar.dart
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:widget_gallery_sa/helpers/drawer.dart';
-
 class SideBar extends StatefulWidget {
   const SideBar({super.key});
 
@@ -11,7 +9,7 @@ class SideBar extends StatefulWidget {
 }
 
 class _SideBarState extends State<SideBar> {
-  int selectedIndex = 0; // Inicializa con el índice de "Inicio"
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -56,4 +54,5 @@ class _SideBarState extends State<SideBar> {
     );
   }
 }
+
 
