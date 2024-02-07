@@ -1,10 +1,11 @@
-import 'package:widget_gallery_sa/screens/forms_screen.dart';
-import 'package:widget_gallery_sa/screens/buttons_screen.dart';
+
 import 'package:widget_gallery_sa/screens/home_screen.dart';
-import 'package:widget_gallery_sa/screens/lists_screen.dart';
-import 'package:widget_gallery_sa/screens/images_screen.dart';
-import 'package:widget_gallery_sa/screens/table_screen.dart';
+import 'package:widget_gallery_sa/views/buttons_view.dart';
+import 'package:widget_gallery_sa/views/forms_view.dart';
 import 'package:widget_gallery_sa/views/home_view.dart';
+import 'package:widget_gallery_sa/views/images_view.dart';
+import 'package:widget_gallery_sa/views/lists_view.dart';
+import 'package:widget_gallery_sa/views/table_view.dart';
 
 
 String onHandleDrawerSelect(int index) {
@@ -12,15 +13,15 @@ String onHandleDrawerSelect(int index) {
     case 0:
       return HomeScreen.name;
     case 1:
-      return FormsScreen.name;
+      return FormsView.name;
     case 2:
-      return ListsScreen.name;
+      return ListsView.name;
     case 3:
-      return ButtonsScreen.name;
+      return ButtonsView.name;
     case 4:
-      return ImagesScreen.name;
+      return ImagesView.name;
     case 5:
-      return TableScreen.name;
+      return TableView.name;
     default:
       return HomeView.name;
   }

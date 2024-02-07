@@ -1,27 +1,12 @@
 import 'package:flutter/material.dart';
 
-class TableScreen extends StatelessWidget {
-  static String name = "table_screen";
+class TableView extends StatelessWidget {
+  static String name = "table_view";
 
-  const TableScreen({Key? key}) : super(key: key);
+  const TableView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Listas'),
-      ),
-      body: _buildTable(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        child: const Icon(Icons.home),
-      ),
-    );
-  }
-
-  Widget _buildTable() {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: DataTable(
@@ -54,4 +39,3 @@ class TableScreen extends StatelessWidget {
     );
   }
 }
-
