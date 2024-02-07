@@ -5,16 +5,23 @@ import 'package:widget_gallery_sa/themeprovider/theme_provider.dart';
 
 void main() {
   runApp(const MainApp());
-}class MainApp extends StatelessWidget {
+}
+
+class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => ThemeProvider(),
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        routerConfig: appRouter,
+      child: Consumer<ThemeProvider>(
+        builder: (context, themeProvider, _) {
+          return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            routerConfig: appRouter,
+            theme: themeProvider.currentTheme,
+          );
+        },
       ),
     );
   }

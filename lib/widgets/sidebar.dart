@@ -20,6 +20,7 @@ class _SideBarState extends State<SideBar> {
           selectedIndex = value;
         });
         context.pushNamed(onHandleDrawerSelect(value));
+        Navigator.pop(context);
       },
       children: const [
         Padding(

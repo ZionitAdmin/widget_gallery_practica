@@ -1,55 +1,43 @@
 import 'package:flutter/material.dart';
 
-class ButtonsScreen extends StatelessWidget {
-  static String name = "buttons_screen";
+class ButtonsView extends StatelessWidget {
+  static String name = "buttons_view";
 
-  const ButtonsScreen({super.key});
+  const ButtonsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Botones'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomStarButton(
-              onTap: () {
-              },
-              color: Colors.yellow,
-              icon: Icons.star,
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CustomStarButton(
+            onTap: () {
+            },
+            color: Colors.yellow,
+            icon: Icons.star,
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Colors.blue,
             ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
-              ),
-              child: const Text('Botón Relleno'),
+            child: const Text('Botón Relleno'),
+          ),
+          const SizedBox(height: 20),
+          TextButton(
+            onPressed: () {
+              _showInputDialog(context);
+            },
+            style: TextButton.styleFrom(
+              primary: Colors.white,
+              backgroundColor: Colors.deepPurple,
             ),
-
-            const SizedBox(height: 20),
-            TextButton(
-              onPressed: () {
-                _showInputDialog(context);
-              },
-              style: TextButton.styleFrom(
-                primary: Colors.white,
-                backgroundColor: Colors.deepPurple,
-              ),
-              child: const Text('TextButton'),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        child: const Icon(Icons.home),
+            child: const Text('TextButton'),
+          ),
+        ],
       ),
     );
   }
@@ -76,7 +64,6 @@ class ButtonsScreen extends StatelessWidget {
               },
               child: const Text('Aceptar'),
             ),
-
           ],
         );
       },
@@ -90,11 +77,11 @@ class CustomStarButton extends StatelessWidget {
   final IconData icon;
 
   const CustomStarButton({
-    super.key,
+    Key? key,
     required this.onTap,
     required this.color,
     required this.icon,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import '../screens/buttons_screen.dart';
-import '../screens/forms_screen.dart';
-import '../screens/home_screen.dart';
-import '../screens/images_screen.dart';
-import '../screens/lists_screen.dart';
-import '../screens/table_screen.dart';
+import 'package:widget_gallery_sa/screens/home_screen.dart';
+import '../views/buttons_view.dart';
+import '../views/forms_view.dart';
 import '../views/home_view.dart';
-
+import '../views/images_view.dart';
+import '../views/lists_view.dart';
+import '../views/table_view.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -19,30 +18,39 @@ final appRouter = GoRouter(
       ),
       branches: <StatefulShellBranch>[
         StatefulShellBranch(routes: [
-          GoRoute(name: HomeScreen.name,
+          GoRoute(
+            name: HomeView.name,
             path: '/',
             builder: (context, state) => const HomeView(),
           ),
-          GoRoute(name:  FormsScreen.name,
+          GoRoute(
+            name: FormsView.name,
             path: '/forms',
-            builder: (context, state) => const FormsScreen(),
+            builder: (context, state) => const FormsView(),
           ),
-          GoRoute( name: ListsScreen.name,
+
+          GoRoute(
+            name: ListsView.name,
             path: '/lists',
-            builder: (context, state) =>  const ListsScreen(),
+            builder: (context, state) => ListsView(),
           ),
-          GoRoute(name: ButtonsScreen.name,
+          GoRoute(
+            name: ButtonsView.name,
             path: '/buttons',
-            builder: (context, state) => const ButtonsScreen(),
+            builder: (context, state) => const ButtonsView(),
           ),
-          GoRoute(name: ImagesScreen.name,
+          GoRoute(
+            name: ImagesView.name,
             path: '/images',
-            builder: (context, state) => const ImagesScreen(),
+            builder: (context, state) => const ImagesView(),
           ),
-          GoRoute(name: TableScreen.name,
+          GoRoute(
+            name: TableView.name,
             path: '/table',
-            builder: (context, state) => const TableScreen(),
+            builder: (context, state) => const TableView(),
           ),
+
+          // Agrega aquí las rutas para otras vistas, como ListsView, ButtonsView, etc.
         ]),
       ],
     ),
